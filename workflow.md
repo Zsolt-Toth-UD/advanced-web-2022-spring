@@ -159,8 +159,8 @@ _Note:_ The hashtag (#) in the issue id may cause some minor troubles in termina
 
 ```
 [user]
-	email = *****@****.***
-  name = ****** ****
+  	email = *****@****.***
+  	name = ****** ****
 [core]
 	editor = vi
 	autocrlf = input
@@ -171,3 +171,14 @@ _Note:_ The hashtag (#) in the issue id may cause some minor troubles in termina
 	abbrevCommit = true
 
 ```
+
+### SSH Key
+
+It is easier to use SSH key to Authenticate GitHub.
+
+
+```shell
+ssh-key-gen
+```
+
+You should add your public key into GiHub, Settings, SSH and GPG Keys section. 
