@@ -73,3 +73,8 @@ fs.writeFileSync(path.join(__dirname,'data','products.json'), JSON.stringify(pro
 fs.writeFileSync(path.join(__dirname,'data','customers.json'), JSON.stringify(customers),{encoding: 'utf-8', flag: 'w'});
 fs.writeFileSync(path.join(__dirname,'data','orders.json'), JSON.stringify(orders),{encoding: 'utf-8', flag: 'w'});
 
+/*
+products: id: uuid, name: string, price: number, category: string
+customer: id: uuid, name: { fistName: string, lastName: string}, email: string}
+order: id: uuid, customer: Customer, orderedProducts: Product[]}
+ */
