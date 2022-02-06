@@ -57,9 +57,14 @@ const generate = generateRecords(generateProduct)();
 
 // console.log({product: generateProduct()})
 
-const products = generate(parseInt(1e4))
-const customers = generateCustomers(parseInt(1e3))
-const orders = generateRecords(generateOrder)({products, customers})(parseInt(1e2));
+const productCount = parseInt(1e4)
+const customerCount = parseInt(1e3);
+const orderCount = parseInt(1e5);
+
+
+const products = generate(productCount)
+const customers = generateCustomers(customerCount)
+const orders = generateRecords(generateOrder)({products, customers})(orderCount);
 
 if(!fs.existsSync(path.join(__dirname, 'data'))){
     fs.mkdir(path.join(__dirname,'data'), (err => {console.error({error: err})}));
@@ -68,5 +73,3 @@ fs.writeFileSync(path.join(__dirname,'data','products.json'), JSON.stringify(pro
 fs.writeFileSync(path.join(__dirname,'data','customers.json'), JSON.stringify(customers),{encoding: 'utf-8', flag: 'w'});
 fs.writeFileSync(path.join(__dirname,'data','orders.json'), JSON.stringify(orders),{encoding: 'utf-8', flag: 'w'});
 
-console.log({order: generateOrder({products, customers})})
-console.log({orders})
