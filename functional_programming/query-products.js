@@ -1,5 +1,5 @@
 /*
-Answer the following queries with JavaScrip.
+Answer the following queries with JavaScript.
 
 select count(*) from products;
 
