@@ -6,7 +6,7 @@ function greetings(name){
 
 // Arrow Function
 const wellcome = (name) => {
-    console.log(`Hello ${name}`)
+    return `Hello ${name}`;
 }
 
 const sayHello = greetings;
