@@ -46,7 +46,7 @@ const generateRecords = (generator) => (args) => (n) => {
 
 const generateCustomers = generateRecords(generateCustomer)();
 
-const generate = generateRecords(generateProduct)();
+const generateProducts = generateRecords(generateProduct)();
 
 // const generateOrders = (n) => {
 //     let result = [];
@@ -62,7 +62,7 @@ const customerCount = parseInt(1e3);
 const orderCount = parseInt(1e5);
 
 
-const products = generate(productCount)
+const products = generateProducts(productCount)
 const customers = generateCustomers(customerCount)
 const orders = generateRecords(generateOrder)({products, customers})(orderCount);
 
