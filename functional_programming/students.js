@@ -28,7 +28,7 @@ students.map((student) => {
     return {...student, hasPassed: hasPassed(student.points)};
 })
     .filter(student => student.hasPassed)
-    .forEach(console.log);
+    .forEach(student => console.log(student));
 
 
 const passedStudentCount = students.map((student) => {
@@ -55,7 +55,7 @@ const markStudent = (points) => {
 students.map((student) => {
     return {...student, mark: markStudent(student.points)};
 })
-    .forEach(console.log);
+    .forEach((student) => console.log(student));
 
 // Task:
 //  - Grade Students on a Curve
