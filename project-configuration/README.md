@@ -17,3 +17,4 @@ Tasks
    - [ ] Calculate test coverage
    - [ ] Include all source files into coverage report
    - [ ] Add minimum code coverage quality gate
+  - [ ] Refactor the code for ESLint and add Tests. 
