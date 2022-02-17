@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "style": "eslint .",
+    "style": "eslint src/ test/",
     "style:fix": "npm run style -- --fix",
     "test": "jest"
   },
@@ -13,6 +13,7 @@
     "eslint": "8.7.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.1",
     "jest": "^27.5.1"
   },
   "author": "",
