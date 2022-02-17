@@ -50,5 +50,6 @@ eslint-config-airbnb-base@latest eslint@^7.32.0 || ^8.2.0 eslint-plugin-import@^
 Installing eslint-config-airbnb-base@latest, eslint@^7.32.0 || ^8.2.0, eslint-plugin-import@^2.25.2
 
 added 61 packages, and audited 145 packages in 9s
-
 ```
+
+- Turn on ESLint in WebStrom. File/Settings/Languages & Frameworks/JavaScript/Code Quality Tools/ESLint. Set to _Automatic ESLint configuration_.

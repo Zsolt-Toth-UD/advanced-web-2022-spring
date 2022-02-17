@@ -1,12 +1,11 @@
-
-const _add = (a,b) => a+b;
-const _sub = (a,b) => a-b;
-const _mul = (a,b) => a*b;
-const _div = (a,b) => a/b;
+const add = (a, b) => a + b;
+const sub = (a, b) => a - b;
+const mul = (a, b) => a * b;
+const div = (a, b) => a / b;
 
 module.exports = {
-    add: _add,
-    sub: _sub,
-    mul: _mul,
-    div: _div
-}
+  add,
+  sub,
+  mul,
+  div,
+};
