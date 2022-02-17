@@ -19,3 +19,8 @@ Tasks
    - [ ] Add minimum code coverage quality gate
  - [ ] Refactor the code for ESLint and add Tests. 
  - [ ] Extend gitignore file properly!
+
+### Project Initialization
+```shell
+npm init
+```

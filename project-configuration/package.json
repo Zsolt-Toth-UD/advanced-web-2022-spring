@@ -1,0 +1,12 @@
+{
+  "name": "project-configuration",
+  "version": "1.0.0",
+  "description": "This project left empty open intentionally. Check the branch __demo/project-configuration__ for the solution.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
