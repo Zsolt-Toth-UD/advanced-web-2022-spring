@@ -11,5 +11,10 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    camelcase: ['error', { properties: 'always' }],
+    curly: ['error', 'all'],
+    indent: ['error', 2],
+    'max-len': ['error', { code: 120 }],
+    semi: ['error', 'always'],
   },
 };
