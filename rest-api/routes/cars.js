@@ -31,4 +31,10 @@ router.get('/', (req, res) => {
    res.status(200).send(result);
 })
 
+router.get('/:id', (req,res)=>{
+   res.status(200).send(
+       carsSeedData.find(car => car.plateNo === req.params.id) ||{}
+   );
+})
+
 module.exports = router;
