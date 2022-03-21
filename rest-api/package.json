@@ -13,6 +13,8 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "swagger-ui-express": "^4.1.6",
+    "swagger-jsdoc": "^6.0.0"
   }
 }
