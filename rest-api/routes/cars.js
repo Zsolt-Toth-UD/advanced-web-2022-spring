@@ -1,4 +1,5 @@
 const express = require('express');
+const validator = require('express-validator');
 const router = express.Router();
 const controller = require('../controllers/carController')
 
@@ -36,6 +37,15 @@ router.get('/', controller.fetchCars)
  *          200:
  *              description: OK
  */
-router.get('/:id', controller.fetchCarById)
+router.get('/:id',
+    [validator.param('id').exists().matches(/^[a-z]{3}[0-9]{3}$/),
+        (req, res, next)=>{
+            const errors = validator.validationResult(req);
+            if(!errors.isEmpty()){
+                res.status(400).send(errors);
+            }
+            next();
+        },
+        controller.fetchCarById])
 
 module.exports = router;
