@@ -3,6 +3,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require('mongoose');
+const host = 'localhost';
+const port = 27017;
+const db = 'test';
+const user = 'mern';
+const password = 'secret';
+mongoose.connect(`mongodb://${host}:${port}/${db}`,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        auth: {
+            authSource: 'admin'
+        },
+        user: user,
+        pass: password
+    }).then(()=>{console.log('Mongo DB Connection Success!');})
+    .catch(error => {
+        console.log(`Mongo DB Connection Failure: Cause: ${error.message}\nStack: ${error.stack}`);
+    });
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const carsRouter = require('./routes/cars');
