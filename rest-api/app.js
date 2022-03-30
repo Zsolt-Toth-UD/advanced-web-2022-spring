@@ -18,7 +18,9 @@ mongoose.connect(`mongodb://${host}:${port}/${db}`,
         },
         user: user,
         pass: password
-    }).then(()=>{console.log('Mongo DB Connection Success!');})
+    }).then(()=>{
+        console.log('Mongo DB Connection Success!');
+    })
     .catch(error => {
         console.log(`Mongo DB Connection Failure: Cause: ${error.message}\nStack: ${error.stack}`);
     });

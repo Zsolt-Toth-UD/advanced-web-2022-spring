@@ -1,18 +1,27 @@
 const service = require('../services/carManagerService')
 
 const fetchCars = (req, res) => {
-    res.status(200).send(service.readCars(req.query));
+    service.readCars(req.query)
+        .then(cars => {
+            res.status(200).send(cars);
+        })
+        .catch(error => {
+            res.status(500).send(error.message);
+        })
 }
 
 const fetchCarById = (req,res)=>{
-    const car = service.readCarByPlateNo(req.params.id)
-    if(!car){
-        res.status(404).send(`Car Not Found! PlateNo: ${req.params.id}`);
-        return;
-    }
-    res.status(200).send(car);
-
-
+    service.readCarByPlateNo(req.params.id)
+        .then(car => {
+            if(!car){
+                res.status(404).send(`Car Not Found: PlateNo: ${req.params.id}`);
+                return;
+            }
+            res.status(200).send(car);
+        })
+        .catch(error => {
+            res.status(500).send(error.message);
+        })
 }
 module.exports = {
     fetchCars,
