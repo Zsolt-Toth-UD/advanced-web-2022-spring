@@ -4,11 +4,13 @@ import './App.css';
 import Greetings from "./components/Greetings";
 import GreetingsForm from "./components/GreetingsForm";
 import CarDetailedList from "./components/CarDetailedList";
+import CarCounter from "./components/CarCounter";
 
 function App() {
   return (
     <div className="App">
       <CarDetailedList/>
+        <CarCounter/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <GreetingsForm/>

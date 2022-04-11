@@ -1,26 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-
-//TODO: Replace with axios call and useEffect
-const cars = [
-    {
-        "plateNo": "abc123",
-        "brand": "bmw",
-        "color": "pink"
-    },
-    {
-        "plateNo": "def456",
-        "brand": "bmw",
-        "color": "pink"
-    },
-    {
-        "plateNo": "ghi789",
-        "brand": "bmw",
-        "color": "pink"
-    }
-];
+import axios from "axios";
+import {Car} from "../types/Car";
 
 const CarDetailedList: React.FunctionComponent = () => {
+
+    const [cars, setCars] = useState<Car[]>([])
+
+    useEffect(()=> {
+        const fetchCars = async () => {
+            const resp = await axios.get('/api/cars')
+            console.log({resp});
+            setCars(resp.data.map(car => {return {...car, plateNo: car._id}}))
+        }
+        fetchCars();
+    }, [])
+
     return (
         <Table>
             <TableHead>
@@ -44,13 +39,8 @@ const CarDetailedList: React.FunctionComponent = () => {
         </Table>
     );
 }
-type CarDetailedListItemProps = {
-    plateNo: String,
-    brand: String,
-    color: String
-};
 
-const CarDetailedListItem: React.FunctionComponent<CarDetailedListItemProps> = ({plateNo, brand, color}) => {
+const CarDetailedListItem: React.FunctionComponent<Car> = ({plateNo, brand, color}) => {
     return (
         <TableRow>
             <TableCell>{plateNo}</TableCell>
