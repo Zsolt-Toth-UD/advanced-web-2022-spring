@@ -3,10 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import Greetings from "./components/Greetings";
 import GreetingsForm from "./components/GreetingsForm";
+import CarDetailedList from "./components/CarDetailedList";
 
 function App() {
   return (
     <div className="App">
+      <CarDetailedList/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <GreetingsForm/>
