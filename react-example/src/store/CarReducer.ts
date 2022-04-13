@@ -18,6 +18,9 @@ export const carSlice = createSlice({
     reducers: {
         refreshCars: (state, action: PayloadAction<Car[]>) => {
             state.cars = [...action.payload];
+        },
+        deleteCarByPlateNo: (state, action: PayloadAction<String>) => {
+            state.cars = [...state.cars.filter((car) => car.plateNo !== action.payload)];
         }
     },
     extraReducers: (builder) => {
@@ -27,5 +30,5 @@ export const carSlice = createSlice({
     }
 });
 
-export const {refreshCars} = carSlice.actions;
+export const {refreshCars, deleteCarByPlateNo} = carSlice.actions;
 export default carSlice.reducer;

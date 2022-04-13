@@ -1,8 +1,10 @@
 import React, {useState} from "react";
-import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
+import {Button, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 import {Car} from "../types/Car";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../store/Store";
+import {Delete} from "@mui/icons-material";
+import {deleteCarByPlateNo} from "../store/CarReducer";
 
 const CarDetailedList: React.FunctionComponent = () => {
 
@@ -35,9 +37,17 @@ const CarDetailedList: React.FunctionComponent = () => {
 }
 
 const CarDetailedListItem: React.FunctionComponent<Car> = ({plateNo, brand, color}) => {
+
+    const appDispatch = useDispatch<AppDispatch>()
+
     return (
         <TableRow>
-            <TableCell>{plateNo}</TableCell>
+            <TableCell>
+                <Button onClick={()=> {
+                    appDispatch(deleteCarByPlateNo(plateNo))
+                }}><Delete/></Button>
+                {plateNo}
+                </TableCell>
             <TableCell>{brand}</TableCell>
             <TableCell>{color}</TableCell>
         </TableRow>
