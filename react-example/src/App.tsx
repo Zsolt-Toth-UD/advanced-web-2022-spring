@@ -5,10 +5,23 @@ import Greetings from "./components/Greetings";
 import GreetingsForm from "./components/GreetingsForm";
 import CarDetailedList from "./components/CarDetailedList";
 import CarCounter from "./components/CarCounter";
+import {Button} from "@mui/material";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "./store/Store";
+import {fetchCars, refreshCars} from "./store/CarReducer";
 
 function App() {
+
+    const appDispatch = useDispatch<AppDispatch>()
+
   return (
     <div className="App">
+      <Button
+        variant={'contained'}
+        onClick={() => {
+            appDispatch(fetchCars());
+        }}
+        >Fetch Cars</Button>
       <CarDetailedList/>
         <CarCounter/>
       <header className="App-header">

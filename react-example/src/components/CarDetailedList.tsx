@@ -1,20 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-import axios from "axios";
 import {Car} from "../types/Car";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../store/Store";
 
 const CarDetailedList: React.FunctionComponent = () => {
 
-    const [cars, setCars] = useState<Car[]>([])
+    const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-    useEffect(()=> {
-        const fetchCars = async () => {
-            const resp = await axios.get('/api/cars')
-            console.log({resp});
-            setCars(resp.data.map(car => {return {...car, plateNo: car._id}}))
-        }
-        fetchCars();
-    }, [])
+    const cars = useAppSelector(state => state.carReducer.cars);
 
     return (
         <Table>
