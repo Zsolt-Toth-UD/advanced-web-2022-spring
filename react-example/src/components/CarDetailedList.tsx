@@ -4,7 +4,7 @@ import {Car} from "../types/Car";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../store/Store";
 import {Delete} from "@mui/icons-material";
-import {deleteCarByPlateNo} from "../store/CarReducer";
+import {deleteCar, deleteCarByPlateNo} from "../store/CarReducer";
 
 const CarDetailedList: React.FunctionComponent = () => {
 
@@ -44,7 +44,7 @@ const CarDetailedListItem: React.FunctionComponent<Car> = ({plateNo, brand, colo
         <TableRow>
             <TableCell>
                 <Button onClick={()=> {
-                    appDispatch(deleteCarByPlateNo(plateNo))
+                    appDispatch(deleteCar(plateNo))
                 }}><Delete/></Button>
                 {plateNo}
                 </TableCell>

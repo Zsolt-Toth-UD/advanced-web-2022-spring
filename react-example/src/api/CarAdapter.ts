@@ -3,6 +3,7 @@ import axios from "axios";
 
 interface CarAdapter {
     fetchCars: () => Promise<Car[]>;
+    deleteCar: (plateNo: String) => Promise<void>;
 }
 
 type CarDataTransferObject = {
@@ -22,6 +23,12 @@ class CarAdapterImpl implements CarAdapter{
                 color: car.color
             }
         });
+    }
+
+    deleteCar = async (plateNo: String) => {
+        const resp = await axios.delete(`api/cars/${plateNo}`);
+        console.log({resp});
+        return;
     }
 }
 
