@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import {ThemeProvider} from "@mui/material";
+import {Button, ThemeProvider} from "@mui/material";
 import {createTheme} from "@mui/material";
 import {green, red} from "@mui/material/colors";
 import DefaultReactContent from "./pages/DefaultReactContent";
 import CarManager from "./pages/CarManager";
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -19,8 +20,18 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <CarManager/>
-            <DefaultReactContent/>
+            <BrowserRouter>
+                <Button>
+                    <Link to={'/'}>Default</Link>
+                </Button>
+                <Button>
+                    <Link to={'/cars'}>Cars</Link>
+                </Button>
+                <Routes>
+                    <Route path={"/"} element={<DefaultReactContent/>}/>
+                    <Route path={"/cars"} element={<CarManager/>}/>
+                </Routes>
+            </BrowserRouter>
         </ThemeProvider>
     );
 }
